@@ -1,9 +1,23 @@
 // src/services/contacts.js
 import { Contact } from '../db/models/contact.js';
 
-export const getAllContacts = async () => {
-  const contacts = await Contact.find();
-  return contacts;
+export const getAllContacts = async ({
+  filter = {},
+  skip,
+  perPage,
+  sortBy,
+  sortOrder,
+}) => {
+  const sortOptions = { [sortBy]: sortOrder };
+
+  const data = await Contact.find(filter)
+    .skip(skip)
+    .limit(perPage)
+    .sort(sortOptions);
+
+  const totalItems = await Contact.countDocuments(filter);
+
+  return { data, totalItems };
 };
 
 export const getContactById = async (contactId) => {
@@ -20,7 +34,7 @@ export const updateContact = async (contactId, data) => {
   const updatedContact = await Contact.findByIdAndUpdate(
     contactId,
     data,
-    { new: true } 
+    { new: true },
   );
   return updatedContact;
 };
