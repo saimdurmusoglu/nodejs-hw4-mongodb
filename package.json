@@ -1,0 +1,38 @@
+{
+  "name": "nodejs-hw-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint --fix src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saimdurmusoglu/nodejs-hw-mongodb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saimdurmusoglu/nodejs-hw-mongodb/issues"
+  },
+  "homepage": "https://github.com/saimdurmusoglu/nodejs-hw-mongodb#readme",
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.3",
+    "pino": "^10.1.0",
+    "pino-http": "^11.0.0"
+  }
+}
